@@ -19,10 +19,20 @@
     # Returns an array for all elements of enum for which the given block returns false.
 
     # Precode
+
+
     
     # Method
     def another_reject
-      #use another_each
+
+      array = []
+      another_each do |i|
+        if i.even? == false
+          array.push i
+        end
+      end
+      array
+    
     end
 
     # another_find
@@ -49,6 +59,8 @@
 
   end
 
+
+
   # Exercise 2 Driver Code
 
     # another_reject test
@@ -73,10 +85,12 @@
 
     # another_map test
     map_example_test_1 = [1,2,3,4].another_map { |x| x * x } == [1, 4, 9, 16]
-    map_example_test_2 = [1,2,3,4].another_map { |num| num + " cat" } == ["1 cat", "2 cat", "3 cat", "4 cat"]
+    map_example_test_2 = [1,2,3,4].another_map { |num| num.to_s + " cat" } == ["1 cat", "2 cat", "3 cat", "4 cat"]
 
     if map_example_test_1 && map_example_test_2
       puts "#another_map - Pass"
     else
       puts "#another_map - F"
     end
+
+
